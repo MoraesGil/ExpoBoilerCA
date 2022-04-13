@@ -1,14 +1,17 @@
-import { registerRootComponent } from 'expo';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { registerRootComponent } from 'expo';
+import { ThemeProvider } from '@rneui/themed';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import Login from './presentation/pages/login/login';
 
 export function App(): JSX.Element {
     return (
-        <View>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <StatusBar />
-        </View>
+        <SafeAreaProvider>
+            <ThemeProvider>
+                <Login />
+            </ThemeProvider>
+        </SafeAreaProvider>
     );
 }
 
