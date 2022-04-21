@@ -5,11 +5,11 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "entryPoint": "./src/App.tsx",
-    "icon": "./assets/icon.png",
+    "icon": "./src/presentation/assets/icons/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./src/presentation/assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -19,7 +19,7 @@
       "supportsTablet": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/presentation/assets/favicon.png"
     }
   }
 }

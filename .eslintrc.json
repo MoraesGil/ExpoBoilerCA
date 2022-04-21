@@ -2,11 +2,11 @@
   "extends": [
     "airbnb",
     "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "plugins": ["prettier", "@typescript-eslint", "react"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -17,6 +17,7 @@
     "project": "./tsconfig-eslint.json"
   },
   "rules": { 
+    "no-unused-expressions": "off",
     "import/no-unresolved": 0,
     "react/jsx-filename-extension": [
       1,

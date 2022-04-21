@@ -3,13 +3,13 @@ import { registerRootComponent } from 'expo';
 import { ThemeProvider } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import Login from './presentation/pages/login/login';
+import SignIn from './presentation/pages/SignIn';
 
 export function App(): JSX.Element {
     return (
         <SafeAreaProvider>
             <ThemeProvider>
-                <Login />
+                <SignIn />
             </ThemeProvider>
         </SafeAreaProvider>
     );
