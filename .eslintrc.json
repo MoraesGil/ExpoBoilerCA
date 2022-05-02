@@ -17,6 +17,7 @@
     "project": "./tsconfig-eslint.json"
   },
   "rules": { 
+    "import/no-extraneous-dependencies": "off",
     "no-unused-expressions": "off",
     "import/no-unresolved": 0,
     "react/jsx-filename-extension": [
