@@ -22,13 +22,7 @@ export namespace Http {
         request: (data: Request) => Promise<Response<R>>;
     }
 
-    export enum Method {
-        post = 'post',
-        get = 'get',
-        put = 'put',
-        delete = 'delete',
-        patch = 'patch',
-    }
+    export type Method = 'post' | 'get' | 'put' | 'delete';
 
     export enum StatusCode {
         ok = 200,
