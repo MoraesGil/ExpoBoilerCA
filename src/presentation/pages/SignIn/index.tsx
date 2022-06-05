@@ -4,12 +4,17 @@ import { Button, Icon } from '@rneui/themed';
 
 import { Input } from '@rneui/base';
 import styles from './styles';
+import { Authentication } from '@/domain/usecases';
 
 // Enable LayoutAnimation on Android
 UIManager.setLayoutAnimationEnabledExperimental &&
     UIManager.setLayoutAnimationEnabledExperimental(true);
 
-const SignIn: React.FC = () => {
+type Props = {
+    authentication: Authentication;
+};
+
+const SignIn: React.FC<Props> = ({ authentication }) => {
     const [isLoading, setLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
     const [isEmailValid, setEmailValid] = useState<boolean | void>(true);
@@ -22,21 +27,34 @@ const SignIn: React.FC = () => {
         return re.test(testEmail);
     };
 
-    const login = () => {
-        setLoading(true);
-        // Simulate an API call
-        setTimeout(() => {
+    const handleSubmit = async (): Promise<void> => {
+        try {
+            if (isLoading) {
+                return;
+            }
+
             const isEmailValidFlag = validateEmail(email);
             const isPasswordValidFlag = password.length >= 8;
 
             LayoutAnimation.easeInEaseOut();
-            setLoading(false);
+
             setEmailValid(isEmailValidFlag);
             setPasswordValid(isPasswordValidFlag);
-            if (isEmailValidFlag && isPasswordValidFlag) {
+
+            setLoading(true);
+            const user = await authentication.auth({
+                email: '',
+                password: '',
+            });
+
+            if (user) {
                 Alert.alert('🔥', 'Successfully Logged In');
             }
-        }, 1500);
+        } catch (error) {
+            Alert.alert('x', error.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -57,7 +75,7 @@ const SignIn: React.FC = () => {
                                 type="font-awesome"
                                 color="rgba(0, 0, 0, 0.38)"
                                 size={25}
-                                style={{ backgroundColor: 'transparent' }}
+                                style={styles.bgTransparent}
                             />
                         }
                         value={email}
@@ -67,12 +85,10 @@ const SignIn: React.FC = () => {
                         autoCorrect={false}
                         keyboardType="email-address"
                         returnKeyType="next"
-                        inputStyle={{ marginLeft: 10, color: 'grey' }}
+                        inputStyle={styles.input}
                         placeholder="Email"
-                        containerStyle={{
-                            borderBottomColor: 'rgba(0, 0, 0, 0.38)',
-                        }}
-                        onChangeText={text => setEmail(text)}
+                        containerStyle={styles.emailContainer}
+                        onChangeText={(text) => setEmail(text)}
                         errorMessage={isEmailValid ? '' : 'Please enter a valid email address'}
                     />
 
@@ -84,7 +100,7 @@ const SignIn: React.FC = () => {
                                 type="simple-line-icon"
                                 color="rgba(0, 0, 0, 0.38)"
                                 size={25}
-                                style={{ backgroundColor: 'transparent' }}
+                                style={styles.bgTransparent}
                             />
                         }
                         value={password}
@@ -94,16 +110,13 @@ const SignIn: React.FC = () => {
                         secureTextEntry
                         returnKeyType="done"
                         blurOnSubmit
-                        containerStyle={{
-                            marginTop: 16,
-                            borderBottomColor: 'rgba(0, 0, 0, 0.38)',
-                        }}
-                        inputStyle={{ marginLeft: 10, color: 'grey' }}
+                        containerStyle={styles.passwordContainer}
+                        inputStyle={styles.input}
                         placeholder="Password"
                         onSubmitEditing={() => {
-                            login();
+                            handleSubmit();
                         }}
-                        onChangeText={text => setPassword(text)}
+                        onChangeText={(text) => setPassword(text)}
                         errorMessage={isPasswordValid ? '' : 'Please enter at least 8 characters'}
                     />
 
@@ -112,7 +125,7 @@ const SignIn: React.FC = () => {
                         containerStyle={{ marginTop: 32, flex: 0 }}
                         activeOpacity={0.8}
                         title="Entrar"
-                        onPress={login}
+                        onPress={handleSubmit}
                         titleStyle={styles.loginTextButton}
                         loading={isLoading}
                         disabled={isLoading}
@@ -121,8 +134,8 @@ const SignIn: React.FC = () => {
                 <View style={styles.helpContainer}>
                     <Button
                         title="Ajuda ?"
-                        titleStyle={{ color: 'white' }}
-                        buttonStyle={{ backgroundColor: 'transparent' }}
+                        titleStyle={styles.whiteColor}
+                        buttonStyle={styles.bgTransparent}
                         onPress={() => Alert.alert('🤔', 'Forgot Password Route')}
                     />
                 </View>

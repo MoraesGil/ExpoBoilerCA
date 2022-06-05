@@ -95,6 +95,20 @@ const styles = StyleSheet.create({
         // fontFamily: 'regular',
         textAlign: 'center',
     },
+    whiteColor: {
+        color: white,
+    },
+    bgTransparent: {
+        backgroundColor: transparent,
+    },
+    emailContainer: {
+        borderBottomColor: 'rgba(0, 0, 0, 0.38)',
+    },
+    passwordContainer: {
+        marginTop: 16,
+        borderBottomColor: 'rgba(0, 0, 0, 0.38)',
+    },
+    input: { marginLeft: 10, color: 'grey' },
 });
 
 export default styles;
