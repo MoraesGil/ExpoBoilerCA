@@ -33,7 +33,8 @@
         "arrowParens": "avoid",
         "endOfLine": "auto"
       }
-    ], 
+    ],
+    "react/function-component-definition": "off",
     "lines-between-class-members": "off",
     "no-use-before-define": "off",
     "import/extensions": ["error", "never"],
