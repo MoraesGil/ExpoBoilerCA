@@ -2,40 +2,48 @@ import { StyleSheet } from 'react-native';
 import Colors from '../../constants/Colors';
 import Layout from '../../constants/Layout';
 
+const white = '#fff';
+const transparent = 'transparent';
+
 const styles = StyleSheet.create({
+    bgImage: {
+        alignItems: 'center',
+        flex: 1,
+        height: Layout.dimensions.SCREEN_HEIGHT,
+        justifyContent: 'center',
+        left: 0,
+        top: 0,
+        width: '100%',
+    },
+    categoryText: {
+        backgroundColor: transparent,
+        color: white,
+        fontFamily: 'light',
+        fontSize: 24,
+        opacity: 0.54,
+        textAlign: 'center',
+    },
     container: {
+        alignItems: 'center',
         backgroundColor: Colors.dark.background,
         flexGrow: 1,
+        height: Layout.dimensions.SCREEN_HEIGHT,
+        justifyContent: 'space-around',
         paddingBottom: 20,
         width: '100%',
-        height: Layout.dimensions.SCREEN_HEIGHT,
+    },
+    formContainer: {
         alignItems: 'center',
-        justifyContent: 'space-around',
+        backgroundColor: white,
+        borderRadius: 10,
+        paddingBottom: 32,
+        paddingTop: 32,
+        width: Layout.dimensions.SCREEN_WIDTH - 30,
     },
-    rowSelector: {
-        height: 20,
-        flexDirection: 'row',
+    helpContainer: {
         alignItems: 'center',
-    },
-    selectorContainer: {
-        flex: 1,
-        alignItems: 'center',
-    },
-    selected: {
-        position: 'absolute',
-        borderRadius: 50,
-        height: 0,
-        width: 0,
-        top: -5,
-        borderRightWidth: 70,
-        borderBottomWidth: 70,
-        borderColor: 'white',
-        backgroundColor: 'white',
-    },
-    loginTextButton: {
-        fontSize: 16,
-        color: 'white',
-        fontWeight: 'bold',
+        height: 64,
+        justifyContent: 'center',
     },
     loginButton: {
         backgroundColor: Colors.dark.primary,
@@ -43,54 +51,49 @@ const styles = StyleSheet.create({
         height: 50,
         width: 200,
     },
-    titleContainer: {
-        height: 150,
-        backgroundColor: 'transparent',
-        justifyContent: 'center',
-    },
-    formContainer: {
-        backgroundColor: 'white',
-        width: Layout.dimensions.SCREEN_WIDTH - 30,
-        borderRadius: 10,
-        paddingTop: 32,
-        paddingBottom: 32,
-        alignItems: 'center',
-    },
     loginText: {
+        color: white,
         fontSize: 16,
         fontWeight: 'bold',
-        color: 'white',
     },
-    bgImage: {
-        flex: 1,
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: Layout.dimensions.SCREEN_HEIGHT,
-        justifyContent: 'center',
+    loginTextButton: {
+        color: white,
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    rowSelector: {
         alignItems: 'center',
+        flexDirection: 'row',
+        height: 20,
     },
-    categoryText: {
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 24,
-        // fontFamily: 'light',
-        backgroundColor: 'transparent',
-        opacity: 0.54,
+    selected: {
+        backgroundColor: white,
+        borderBottomWidth: 70,
+        borderColor: white,
+        borderRadius: 50,
+        borderRightWidth: 70,
+        height: 0,
+        position: 'absolute',
+        top: -5,
+        width: 0,
     },
     selectedCategoryText: {
         opacity: 1,
     },
+    selectorContainer: {
+        alignItems: 'center',
+        flex: 1,
+    },
+    titleContainer: {
+        backgroundColor: transparent,
+        height: 150,
+        justifyContent: 'center',
+    },
     titleText: {
-        color: 'white',
+        color: white,
         fontSize: 30,
         // fontFamily: 'regular',
         textAlign: 'center',
-    },
-    helpContainer: {
-        height: 64,
-        alignItems: 'center',
-        justifyContent: 'center',
     },
 });
 
