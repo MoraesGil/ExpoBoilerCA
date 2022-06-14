@@ -304,17 +304,16 @@ This will start three processes in parallel:
 In local production mode, the app will be available at [`http://localhost:3000`](http://localhost:3000)
 
 ## Available NPM commands
-
-| Command                         | Description                                                                                                                                                              |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `npm run start`                 | start webapp in production mode (no live-reload)                                                                                                                         |
-| `npm run start:dev`             | start webapp in local development mode                                                                                                                                   |
-| `npm run build`                 | build production version of static assets with webpack and daemon with TypeScript                                                                                        |
-| `npm run test`                  | run unit tests and generate code coverage report                                                                                                                         |
-| `npm run test:watch`            | run tests in watch mode, only run tests affected by current changes                                                                                                      |
-| `npm run test:staged`           | run tests in staged files                                                                                                                                                | 
-| `npm run test:ci`               | run all tests and generate code coverage report                                                                                                                          |
-| `npm run test:update-snapshots` | updates test snapshots to capture current state                                                                                                                          |
-| `npm run lint`                  | run [`eslint`](https://eslint.org/) check on JavaScript files                                                                                                            |
-| `npm run lint:fix`              | run [`eslint`](https://eslint.org/) check and fix all possible offenders                                                                                                 |
- 
+ | Command             | Description                                                                     |
+| ------------------- | ------------------------------------------------------------------------------- |
+| npm run start       | start expo server in development (no live-reload)                               |
+| npm run android     | start expo server in development on Android Emulator or Device (no live-reload) |
+| npm run ios         | start expo server in development on Ios Emulator or Device (no live-reload)     |
+| npm run lint        | ESLint statically analyzes your code to quickly find problems.                  |
+| npm run lint:fix    | ESLint finds can be automatically fixed                                         |
+| npm run test        | Execute Jest tests                                                              |
+| npm run test:watch  | Execute Jest tests and keep watching for changes                                |
+| npm run test:staged | Execute Jest test of staged files only                                          |
+| npm run test:ci     | Run all tests and check coverage                                                |
+| npm run check       | Check pagekes updates available                                                 |
+| npm run prepare     | Run commands to prepare the application                                         |
