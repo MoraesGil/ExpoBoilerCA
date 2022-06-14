@@ -1,7 +1,11 @@
 # Boiler Clean Architecture Expo
-a boiler plate to start a project with Login using.
+A boiler plate to start a project with Login using.
 Expo React Native, Hooks, Recoil, TDD, Clean Architecture, SOLID, eslint airbnb, prettier
 
+![Book reference](https://images-na.ssl-images-amazon.com/images/I/41-sN-mzwKL.jpg )
+![concepet img](./clean-architecture.jpeg)
+
+# Technical overview  
 > ## Principles
 
 * Single Responsibility Principle (SRP)
@@ -67,29 +71,21 @@ Expo React Native, Hooks, Recoil, TDD, Clean Architecture, SOLID, eslint airbnb,
 * Spies
 * Fakes
 * Dummies
-# BoilerPlate Clean Architeture  
 
-![Book reference](https://images-na.ssl-images-amazon.com/images/I/41-sN-mzwKL.jpg )
-![concepet img](./public/clean-architecture.jpeg)
-
-# Technical overview
-
-### Table of Contents
+# Table of Contents
 
 -   [Typescript](#typescript)
--   [Code overview](#code-overview)
--   [Available NPM Commands](#available-npm-commands)
--   [Other documentation for this service](#other-documentation-for-this-service)
+-   [Code overview](#code-overview) 
 -   [Local Development](#local-development) 
--   [Production build](#production-build)
--   [Project Descripition](#Critique)
+-   [Production build](#production-build) 
+-   [Available NPM Commands](#available-npm-commands)
  
  
 ## TypeScript
 
 This project uses [TypeScript](https://wiki.indeed.com/display/FrontEnd/TypeScript) for production build and local development mode. 
  
-the main entry point file (`/src/main/index.ts`).
+the main entry point file (`./src/App.tsx`).
 
 ## Code overview
 
@@ -98,137 +94,63 @@ This is a front-end TypeScript/JavaScript web app with support for universal Rea
 All source code lives in `src` directory:
 
 ```
-├── README.md
-├── app
-├── app.json
-├── assets
-│   ├── favicon.png
-│   ├── icon.png
-│   └── splash.png
-├── babel.config.js
-├── coverage
-│   ├── clover.xml
-│   ├── coverage-final.json
-│   ├── lcov-report
-│   │   ├── base.css
-│   │   ├── block-navigation.js
-│   │   ├── favicon.png
-│   │   ├── index.html
-│   │   ├── prettify.css
-│   │   ├── prettify.js
-│   │   ├── remote-authentication.ts.html
-│   │   ├── sort-arrow-sprite.png
-│   │   ├── sorter.js
-│   │   └── src
-│   │       ├── App.tsx.html
-│   │       ├── application
-│   │       │   └── usecases
-│   │       │       └── remote-authentication
-│   │       │           ├── index.html
-│   │       │           └── mock-authentication.ts.html
-│   │       ├── data
-│   │       │   ├── protocols
-│   │       │   │   └── http
-│   │       │   │       ├── http-response.ts.html
-│   │       │   │       └── index.html
-│   │       │   ├── test
-│   │       │   │   ├── index.html
-│   │       │   │   ├── mock-http-client.ts.html
-│   │       │   │   └── mock-http-post.ts.html
-│   │       │   └── usecases
-│   │       │       └── authentication
-│   │       │           ├── index.html
-│   │       │           └── remote-authentication.ts.html
-│   │       ├── domain
-│   │       │   ├── data
-│   │       │   │   ├── test
-│   │       │   │   │   ├── index.html
-│   │       │   │   │   ├── mock-http-client.ts.html
-│   │       │   │   │   └── mock-http-clint.ts.html
-│   │       │   │   └── usecases
-│   │       │   │       └── authentication
-│   │       │   │           ├── index.html
-│   │       │   │           └── remote-authentication.ts.html
-│   │       │   ├── errors
-│   │       │   │   ├── index.html
-│   │       │   │   ├── invalid-credentials-error.ts.html
-│   │       │   │   └── unexpected-error.ts.html
-│   │       │   ├── protocols
-│   │       │   │   ├── http-client.ts.html
-│   │       │   │   └── index.html
-│   │       │   └── test
-│   │       │       ├── index.html
-│   │       │       └── mock-authentication.ts.html
-│   │       ├── index.html
-│   │       ├── infra
-│   │       │   ├── axios-http-client
-│   │       │   │   ├── axios-http-client.ts.html
-│   │       │   │   ├── index.html
-│   │       │   │   └── mock-axios.ts.html
-│   │       │   ├── http
-│   │       │   │   └── axios-http-client
-│   │       │   │       ├── axios-http-client
-│   │       │   │       │   ├── axios-http-client.ts.html
-│   │       │   │       │   └── index.html
-│   │       │   │       ├── axios-http-client.ts.html
-│   │       │   │       └── index.html
-│   │       │   └── test
-│   │       │       ├── index.html
-│   │       │       └── mock-axios.ts.html
-│   │       └── presentation
-│   │           ├── constants
-│   │           │   ├── Colors.ts.html
-│   │           │   ├── Layout.ts.html
-│   │           │   └── index.html
-│   │           └── pages
-│   │               ├── SignIn
-│   │               │   ├── index.html
-│   │               │   ├── index.tsx.html
-│   │               │   └── styles.ts.html
-│   │               └── login
-│   │                   ├── index.html
-│   │                   └── login.tsx.html
-│   └── lcov.info
-├── jest.config.js
-├── package-lock.json
-├── package.json
-├── src
-│   ├── App.tsx
-│   ├── application
-│   │   └── usecases
-│   │       └── remote-authentication
-│   │           ├── mock-authentication.ts
-│   │           ├── remote-authentication.spec.ts
-│   │           └── remote-authentication.ts
-│   ├── domain
-│   │   ├── errors
-│   │   │   ├── index.ts
-│   │   │   ├── invalid-credentials-error.ts
-│   │   │   └── unexpected-error.ts
-│   │   ├── models
-│   │   │   ├── account-model.ts
-│   │   │   └── index.ts
-│   │   ├── protocols
-│   │   │   ├── http-client.ts
-│   │   │   └── index.ts
-│   │   └── usecases
-│   │       ├── authentication.ts
-│   │       └── index.ts
-│   ├── infra
-│   │   ├── axios-http-client
-│   │   │   ├── axios-http-client.spec.ts
-│   │   │   ├── axios-http-client.ts
-│   │   │   ├── index.ts
-│   │   │   └── mock-axios.ts
-│   │   └── mock-http.ts
-│   └── presentation
-│       └── theme
-├── tsconfig-eslint.json
-└── tsconfig.json
- 
+./src
+├── App.tsx
+├── application
+│   └── usecases (Implementations of Domain)
+│       └── remote-authentication
+│           ├── mock-account.ts
+│           ├── mock-authentication.ts
+│           ├── remote-authentication.spec.ts
+│           └── remote-authentication.ts
+├── domain (Interfaces and types of Business rules)
+│   ├── errors
+│   │   ├── index.ts
+│   │   ├── invalid-credentials-error.ts
+│   │   └── unexpected-error.ts
+│   ├── models
+│   │   ├── account-model.ts
+│   │   └── index.ts
+│   ├── protocols
+│   │   ├── http-client.ts
+│   │   └── index.ts
+│   └── usecases
+│       ├── authentication.ts
+│       └── index.ts
+├── infra (Third-part integrations for extenal dependencies)
+│   ├── axios-http-client
+│   │   ├── axios-http-client.spec.ts
+│   │   ├── axios-http-client.ts
+│   │   ├── index.ts
+│   │   └── mock-axios.ts
+│   └── mock-http.ts
+├── main (Main folder is where we build the componentns integrating Presentation with Application implementations)
+│   └── factories
+│       ├── http
+│       │   ├── api-url-factory.ts
+│       │   └── axios-http-client-factory.ts
+│       └── pages
+│           └── sign-in-factory.tsx
+└── presentation (Here is where lives all front-end things)
+    ├── assets
+    │   ├── favicon.png
+    │   ├── icon.png
+    │   ├── icons
+    │   │   ├── icon.png
+    │   │   └── loading.png
+    │   └── splash.png
+    ├── constants
+    │   ├── Colors.ts
+    │   └── Layout.ts
+    ├── navigation
+    │   └── RootNavigator.ts
+    └── pages
+        ├── Home
+        │   └── index.tsx
+        └── SignIn
+            ├── index.tsx
+            └── styles.ts 
 ``` 
-
- 
  
 ## Local development
 
